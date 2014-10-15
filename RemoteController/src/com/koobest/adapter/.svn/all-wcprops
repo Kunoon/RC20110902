@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/rc/!svn/ver/44/src/com/koobest/adapter
+END
+ImageAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rc/!svn/ver/1/src/com/koobest/adapter/ImageAdapter.java
+END
+DirectoryAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rc/!svn/ver/1/src/com/koobest/adapter/DirectoryAdapter.java
+END
+RCsAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rc/!svn/ver/44/src/com/koobest/adapter/RCsAdapter.java
+END
+ResAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rc/!svn/ver/30/src/com/koobest/adapter/ResAdapter.java
+END
+RCInformationAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/rc/!svn/ver/44/src/com/koobest/adapter/RCInformationAdapter.java
+END

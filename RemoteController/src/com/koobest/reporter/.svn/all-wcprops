@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rc/!svn/ver/57/src/com/koobest/reporter
+END
+CustomException.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/rc/!svn/ver/57/src/com/koobest/reporter/CustomException.java
+END
+ExceptionSendService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/rc/!svn/ver/56/src/com/koobest/reporter/ExceptionSendService.java
+END
+KoobestApplication.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/rc/!svn/ver/50/src/com/koobest/reporter/KoobestApplication.java
+END
+ErrorReporter.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/rc/!svn/ver/49/src/com/koobest/reporter/ErrorReporter.java
+END

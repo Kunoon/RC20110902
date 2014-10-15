@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:koobest="http://schemas.android.com/apk/res/com.koobest">
+	<com.koobest.customization.SeekBarPreference
+		android:key="controller_rows_onscreen" android:title="设置页面显示的按钮行数"
+		android:summary="建议不超过9" android:dialogMessage="页面显示的按钮行数"
+		android:defaultValue="6" android:max="12" />
+	<com.koobest.customization.SeekBarPreference
+		android:key="controller_btn_width" android:title="设置按钮间距"
+		android:summary="设定按钮之间的间距" android:dialogMessage="按钮总行数"
+		android:defaultValue="10" android:text="行" android:max="50" />
+	<com.koobest.customization.SeekBarPreference
+		android:key="controller_btn_height" android:title="设置按钮行间距"
+		android:summary="设定按钮之间的行间距" android:dialogMessage="按钮总行数"
+		android:defaultValue="10" android:text="行" android:max="20" />
+</PreferenceScreen>

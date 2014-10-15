@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:koobest="http://schemas.android.com/apk/res/com.koobest">
+  <PreferenceCategory
+		android:title="@string/setting_catagory_basic_title"
+		>
+  	<com.koobest.customization.SeekBarPreference 
+		android:key = "num_columns"
+		android:max = "5"
+		koobest:min = "1"
+		android:defaultValue = "2"
+		android:title = "@string/setting_num_columns_title"
+		android:summary = "@string/setting_num_columns_summary"
+	/>
+	<com.koobest.customization.CheckBoxExt
+		android:key = "vibrator"
+		android:defaultValue = "false"
+		android:title = "@string/setting_vibrator_title"
+	></com.koobest.customization.CheckBoxExt>
+	<com.koobest.customization.SeekBarPreference 
+		android:key = "vibrator_strength"
+		android:max = "100"
+		koobest:min = "10"
+		android:defaultValue = "50"
+		android:title = "@string/setting_vibrator_strength_title"
+	/>
+	<com.koobest.customization.SeekBarPreference 
+		android:key = "bottom_adjust"
+		android:max = "100"
+		koobest:min = "0"
+		koobest:message = "@string/setting_bottom_adjust_message"
+		android:defaultValue = "10"
+		android:title = "@string/setting_bottom_adjust_title"
+		android:summary = "@string/setting_bottom_adjust_summary"
+	/>
+	<com.koobest.customization.CheckBoxExt
+		android:key = "habit_recorder"
+		android:defaultValue = "false"
+		android:title = "@string/setting_hr_title"
+		android:summary = "@string/setting_hr_summary"
+	></com.koobest.customization.CheckBoxExt>
+	<com.koobest.customization.CheckBoxExt
+		android:key = "error_reporter"
+		android:defaultValue = "false"
+		android:title = "@string/reporter_setting_title"
+		android:summary = "@string/reporter_setting_summary"
+	></com.koobest.customization.CheckBoxExt>
+	<com.koobest.customization.CheckBoxExt
+		android:key = "error_reporter_auto_send"
+		android:defaultValue = "false"
+		android:title = "@string/repotrer_auto_send_title"
+		android:summary = "@string/reporter_auto_send_summary"
+	></com.koobest.customization.CheckBoxExt>
+	
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:key="bt"
+		android:title="@string/tip_Preference_BT"
+		>
+		<com.koobest.customization.CheckBoxExt
+			android:key="bt_auto"
+			android:title="@string/tip_Preference_BT_Auto"
+			android:defaultValue="false"
+			/>
+		<com.koobest.customization.CheckBoxExt
+			android:key="bt_enable"
+			android:title="@string/tip_Preference_BT_Enable"
+			android:defaultValue="false"
+			/>
+		<Preference
+			android:key="bt_search"
+			android:title="@string/tip_Preference_BT_Search"
+			/>
+		<com.koobest.customization.CheckBoxExt
+			android:key="bt_role"
+			android:title="@string/tip_Preference_BT_Role"
+			android:summaryOn="@string/tip_Preference_BT_Role_Server"
+			android:summaryOff="@string/tip_Preference_BT_Role_Client"
+			android:defaultValue="false"
+			/>
+		<Preference
+			android:key="bt_visible"
+			android:title="@string/tip_Preference_BT_Visible"
+			/>
+	</PreferenceCategory>
+		
+</PreferenceScreen>

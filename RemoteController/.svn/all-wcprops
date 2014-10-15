@@ -1,0 +1,27 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 17
+/svn/rc/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 19
+/svn/rc/!svn/ver/58
+END
+default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/rc/!svn/ver/1/default.properties
+END
+proguard.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/rc/!svn/ver/1/proguard.cfg
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/rc/!svn/ver/50/AndroidManifest.xml
+END

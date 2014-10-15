@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rc/!svn/ver/58/src/com/koobest/customization
+END
+SpinnerExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/rc/!svn/ver/49/src/com/koobest/customization/SpinnerExt.java
+END
+AlertWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/rc/!svn/ver/31/src/com/koobest/customization/AlertWindow.java
+END
+FileChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/rc/!svn/ver/27/src/com/koobest/customization/FileChooser.java
+END
+CheckBoxExt.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/rc/!svn/ver/41/src/com/koobest/customization/CheckBoxExt.java
+END
+DirManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/rc/!svn/ver/57/src/com/koobest/customization/DirManager.java
+END
+DialogChoice.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/rc/!svn/ver/1/src/com/koobest/customization/DialogChoice.java
+END
+bitmapConverting.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/rc/!svn/ver/28/src/com/koobest/customization/bitmapConverting.java
+END
+SeekBarPreference.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/rc/!svn/ver/41/src/com/koobest/customization/SeekBarPreference.java
+END
+LockableGridView.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/rc/!svn/ver/28/src/com/koobest/customization/LockableGridView.java
+END
+VerticalScrollView.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/rc/!svn/ver/55/src/com/koobest/customization/VerticalScrollView.java
+END
+PreImageView.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/rc/!svn/ver/30/src/com/koobest/customization/PreImageView.java
+END
+MyAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rc/!svn/ver/58/src/com/koobest/customization/MyAdapter.java
+END
+MyGridView.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/rc/!svn/ver/56/src/com/koobest/customization/MyGridView.java
+END
+DialogWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/rc/!svn/ver/41/src/com/koobest/customization/DialogWindow.java
+END
+MyImageAdapter.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/rc/!svn/ver/24/src/com/koobest/customization/MyImageAdapter.java
+END
+SeekBarDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/rc/!svn/ver/39/src/com/koobest/customization/SeekBarDialog.java
+END

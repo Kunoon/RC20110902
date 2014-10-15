@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><RemoteController>
+<model>tvddddd</model>
+<type>dvd</type>
+<NumForeach>3</NumForeach>
+<btn_width>5</btn_width>
+<btn_height>5</btn_height>
+<Buttons>
+      <button>
+  	<description>d</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>d</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>d</description>
+    <code/>
+    <icon/>
+  </button>
+      </Buttons>
+<RowsOnScreen>7</RowsOnScreen></RemoteController>

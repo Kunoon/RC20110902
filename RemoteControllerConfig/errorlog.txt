@@ -1,0 +1,7 @@
+java.lang.NullPointerException
+	at com.koobest.database.UpdateInfo.shallUpdate(UpdateInfo.java:176)
+	at com.koobest.RemoteControllerMain$6.handleMessage(RemoteControllerMain.java:400)
+	at android.os.Handler.dispatchMessage(Handler.java:95)
+	at android.os.Looper.loop(Looper.java:143)
+	at android.os.HandlerThread.run(HandlerThread.java:60)
+ / Connect to /192.168.1.52:80 timed out

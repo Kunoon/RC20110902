@@ -1,0 +1,185 @@
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/rc/!svn/ver/58/res/layout
+END
+checkbox_off.xml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/rc/!svn/ver/37/res/layout/checkbox_off.xml
+END
+tab_spec.xml
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/rc/!svn/ver/20/res/layout/tab_spec.xml
+END
+menu_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rc/!svn/ver/40/res/layout/menu_item.xml
+END
+checkbox_on.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/rc/!svn/ver/37/res/layout/checkbox_on.xml
+END
+listview_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/rc/!svn/ver/30/res/layout/listview_item.xml
+END
+main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/rc/!svn/ver/56/res/layout/main.xml
+END
+seek_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/rc/!svn/ver/33/res/layout/seek_layout.xml
+END
+rename_device.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/rc/!svn/ver/47/res/layout/rename_device.xml
+END
+empty_view.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rc/!svn/ver/1/res/layout/empty_view.xml
+END
+remote_devices_list.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/rc/!svn/ver/50/res/layout/remote_devices_list.xml
+END
+double_gallery.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rc/!svn/ver/30/res/layout/double_gallery.xml
+END
+dialog_seekbar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rc/!svn/ver/34/res/layout/dialog_seekbar.xml
+END
+checkbox_on_unenable.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/rc/!svn/ver/41/res/layout/checkbox_on_unenable.xml
+END
+seek_preference_layout_unenable.xml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/rc/!svn/ver/41/res/layout/seek_preference_layout_unenable.xml
+END
+popup_window_main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/rc/!svn/ver/56/res/layout/popup_window_main.xml
+END
+remote_controller.xml
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/rc/!svn/ver/23/res/layout/remote_controller.xml
+END
+dialog_items.xml
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/rc/!svn/ver/31/res/layout/dialog_items.xml
+END
+unmounted_sd_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/rc/!svn/ver/55/res/layout/unmounted_sd_layout.xml
+END
+remote_controller_main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rc/!svn/ver/55/res/layout/remote_controller_main.xml
+END
+pop_window_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/rc/!svn/ver/45/res/layout/pop_window_item.xml
+END
+pop_add.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/rc/!svn/ver/1/res/layout/pop_add.xml
+END
+dialog_modify.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/rc/!svn/ver/34/res/layout/dialog_modify.xml
+END
+seekbar_preference_layout.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rc/!svn/ver/41/res/layout/seekbar_preference_layout.xml
+END
+tab_image.xml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/rc/!svn/ver/58/res/layout/tab_image.xml
+END
+remote_controller_rows.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rc/!svn/ver/23/res/layout/remote_controller_rows.xml
+END
+define_device.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/rc/!svn/ver/43/res/layout/define_device.xml
+END
+dialog_button_style.xml
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/rc/!svn/ver/32/res/layout/dialog_button_style.xml
+END
+seekbar_preference.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/rc/!svn/ver/35/res/layout/seekbar_preference.xml
+END
+dialog_item.xml
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/rc/!svn/ver/1/res/layout/dialog_item.xml
+END
+spinner_ext_dialog.xml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/rc/!svn/ver/44/res/layout/spinner_ext_dialog.xml
+END

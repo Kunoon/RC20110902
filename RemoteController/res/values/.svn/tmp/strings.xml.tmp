@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, HomaPage!</string>
+	<!-- Common Message -->
+	<string name="tip">建议</string>
+	<string name="pause">最小化</string>
+	<string name="exit">退出</string>
+	<string name="confirm">确定</string>
+	<string name="cancel">取消</string>
+	<string name="next_step">下一步</string>
+	<string name="back">返回</string>
+	<string name="of_course">当然</string>
+	<string name="do_it_later">以后再说</string>
+	<string name="dialog_in_progress">请稍后，处理中</string>
+	<string name="test_featurez_auto_connection">蓝牙已开启，自动连接控制盒的功能尚在测试，我们将在下个版本中更新，目前可以在配置中搜索连接
+	</string>
+	<string name="search">搜索</string>
+
+	<string name="menu_add">增加</string>
+	<string name="menu_save">保存</string>
+
+	<string name="change_label">修改界面</string>
+	<string name="change_cancel">取消修改</string>
+	<string name="app_name">遥控器架子</string>
+
+
+	<!-- 模式标志 -->
+	<string name="codingCommand">Program is coding!</string>
+	<string name="decodingCommand">Program is decoding</string>
+	<!-- 提示标签 -->
+	<string name="tip_Program_Sleep">程序进入后台暂停</string>
+	<string name="tip_Program_Starting">程序正在启动……</string>
+	<string name="tip_BT_Enabling">正在开启蓝牙</string>
+	<string name="tip_BT_Enable">本地蓝牙设备已开启</string>
+	<string name="tip_BT_Paired">（已配对）</string>
+	<string name="tip_BT_Unpair">（未配对）</string>
+	<string name="tip_BT_RoleMark">下次启动程序后生效</string>
+	<string name="tip_BT_Connecting">正在连接到：</string>
+	<string name="tip_BT_SearchDevices">正在搜索蓝牙设备……</string>
+	<string name="tip_BT_ConnectedTo">已连接到</string>
+	<string name="tip_BT_DiscoveryDevices">发现其他蓝牙设备</string>
+	<string name="tip_BT_DiscoveryDevices_Summary">你可以到配置列表下连接设备</string>
+	<string name="tip_BT_FinishedDoNothing">未搜索到蓝牙设备！</string>
+	<string name="tip_BT_SetOtherName">设置设备别名</string>
+	<string name="tip_BT_Delete">删除</string>
+	<string name="tip_BT_DeleteAll">删除全部</string>
+	<string name="tip_AlertDialog_ConnectBt_Title">Koobest</string>
+	<string name="tip_AlertDialog_ConnectBt_Message">是否请求连接到蓝牙控制盒？</string>
+	<string name="tip_AlertDialog_ExitBt_Title">Koobest</string>
+	<string name="tip_AlertDialog_ExitBt_Message">是否退出程序？</string>
+	<string name="tip_AlertDialog_RememberConnect">记住该设备</string>
+	<string name="tip_ProgressDialog_WaitBt_Message">等待蓝牙开启……</string>
+	<string name="tip_Preference_BT">蓝牙管理</string>
+	<string name="tip_Preference_BT_Auto">自动开启蓝牙</string>
+	<string name="tip_Preference_BT_Role">设置蓝牙角色</string>
+	<string name="tip_Preference_BT_Role_Server">当前设备角色：蓝牙服务端</string>
+	<string name="tip_Preference_BT_Role_Client">当前设备角色：蓝牙客户端</string>
+	<string name="tip_Preference_BT_Enable">开启蓝牙</string>
+	<string name="tip_Preference_BT_Enabling">正在打开……</string>
+	<string name="tip_Preference_BT_Disabling">正在关闭……</string>
+	<string name="tip_Preference_BT_Default">打开蓝牙</string>
+	<string name="tip_Preference_BT_SettingBT">设置蓝牙</string>
+	<string name="tip_Preference_BT_Visible">设置蓝牙可见</string>
+	<string name="tip_Preference_BT_Notify">蓝牙通知</string>
+	<string name="tip_Preference_BT_Notify_context">附近有蓝牙设备时通知我</string>
+	<string name="tip_Preference_BT_Available">已搜索到的可用设备</string>
+	<string name="tip_Preference_BT_Search">选择连接设备</string>
+	<string name="tip_MyBuilderDialog_BT_Submenu_Title">请选择连接设备</string>
+	<string name="tip_MyBuilderDialog_BT_Submenu_NotFoundDevice">未发现蓝牙设备</string>
+	<string name="tip_MyBuilderDialog_BT_Main_NewDevices_Title">发现新的未配对设备</string>
+	<string name="tip_NoBluetooth">本地不存在蓝牙设备</string>
+	<string name="tip_BluetoothDeviceUnavailable">蓝牙设备未启用</string>
+	<string name="tip_TipSetBluetoothAble">请在开启蓝牙后再操作</string>
+	<string name="tip_ConnectRemoteBluetooth">是否与蓝牙控制盒建立连接？</string>
+	<string name="tip_NoConnectToRemote">不能连接远程设备</string>
+	<string name="tip_LostConnect">丢失设备连接</string>
+	<string name="tip_BTAddressUnable">蓝牙地址无效</string>
+	<string name="tip_NotConnectRemote">您没有与任何蓝牙设备建立连接！</string>
+	<string name="tip_Title_NotConnected">未连接</string>
+	<string name="tip_Title_Listening">等待连接……</string>
+	<string name="tip_Title_Connected">已连接到: </string>
+	<string name="tip_Connection_confirm">是否打开蓝牙设备？您可以在配置文件中设置自动启动蓝牙</string>
+	<!-- 蓝牙连接 -->
+	<string name="btConnect_pairedDeviceTitle">已配对设备</string>
+	<string name="btConnect_otherDevicesTitle">其它未配对设备</string>
+	<string name="btConnect_nonePaired">未发现已配对设备</string>
+	<string name="btConnect_title">请选择连接设备</string>
+	<string name="btConnect_notFoundDevice">未发现蓝牙设备</string>
+	<!-- 遥控器页面 -->
+	<string name="menu_modify">按钮配置</string>
+	<string name="menu_lock">锁屏</string>
+	<string name="menu_unlock">解锁</string>
+	<string name="menu_change_bg">背景图片</string>
+	<string name="menu_preference">设置遥控器</string>
+	<string name="hint">提示</string>
+	<string name="dialog_save_quest">页面已经过修改，是否保存当前的页面？</string>
+	<string name="controller_modify">选择修改项</string>
+	<string name="dialog_numofrow">设置该行的按钮数目</string>
+	<string name="newrow_num">设置新增行的按钮数目</string>
+	<string name="dialog_modify_btn">设置按钮名称</string>
+	<string name="dialog_modify_btn_edit">输入名称</string>
+	<string name="help">如果需要修改当前遥控器的页面，请点击菜单并选择修改界面。如果需要锁定当前遥控器，禁止滑动，可点击菜单选项中的锁屏
+	</string>
+	<string name="modify_enabled">修改模式已启用，单击按钮选择需要修改的项目，长按按钮以对换按钮位置</string>
+	<string name="modify_disabled">已退出修改模式</string>
+	<string-array name="rc_options">
+		<item>删除按钮</item>
+		<item>修改按钮名称</item>
+		<item>接受按钮信号码</item>
+		<item>设置该行按钮数目</item>
+		<item>修改按钮样式</item>
+		<item>取消</item>
+	</string-array>
+	<!-- 提示 -->
+	<string name="rc_dialog_titile_degree">请选择翻转角度（顺时针）</string>
+	<string name="rc_dialog_input_name">输入按钮的名字</string>
+	<string name="rc_tip_save_cfg">文件创建成功，已保存在 </string>
+	<!-- 警告 -->
+	<string name="rc_dialog_notice">图片高宽比与系统高宽比不相符，这可能会使图片被拉伸而失真，是否进行图片翻转处理？</string>
+	<string name="rc_dialog_imgloss">所设定图片已丢失，请重新设定</string>
+	<!-- 错误 -->
+	<string name="error_no_internet">没有检测到网络连接，您将不能使用所有功能</string>
+	<string name = "error_sdcard_unmounted">SD卡不可读</string>
+	<!-- 遥控器页面 -->
+<<<<<<< .mine
+	<string name = "def_airmachine">空调</string>
+	<string name = "def_tv">电视</string>
+	<string name = "def_no_des">无描述信息</string>
+=======
+	<string name="def_airmachine">空调</string>
+	<string name="def_tv">电视</string>
+	<string name="def_no_des">无描述信息</string>
+>>>>>>> .r52
+	<!-- 主页面 -->
+	<string-array name="rcm_option">
+		<item>更换遥控器图标</item>
+		<item>更改遥控器标签</item>
+		<item>删除遥控器</item>
+		<item>翻转遥控器图标</item>
+	</string-array>
+	<string name="menu_setting">配置</string>
+	<string name="menu_add_rc">增加遥控器</string>
+	<string name="menu_choice_bg">架子皮肤</string>
+	<string name="menu_about">关于</string>
+	<string name="submenu_addfrom_net">从KooBest获取遥控器</string>
+	<string name="submenu_addby_diy">我想自己做一个</string>
+	<!-- Main Dialog -->
+	<string name="dialog_add_guide_title">小贴士</string>
+	<string name="dialog_setting_title">遥控器配置</string>
+	<string name="dialog_modify_identify">修改遥控器标签</string>
+
+	<string name="dialog_send_msg_title">错误报告</string>
+	<string name="dialog_send_msg_message">检测到未发送成功的错误报告，是否发送？您可以去配置中启用自动发送</string>
+
+	<!-- 警告 -->
+	<string name="warn_empty_input">输入为空，这将导致你的描述信息被清空，确认继续？</string>
+	<string name="warn_delete_rc">确定删除？这将导致不可逆的结果</string>
+	<string name="warn_delete_row">已经是最后一排按钮，不能删除</string>
+
+	<!--  提示 -->
+	<string name="notice_check_identify">你可以在遥控器图标中轻轻下划以查看标签信息</string>
+	<string name="notice_unsupport_res">暂不支持翻转内部资源文件</string>
+	<string name="notice_add_description">为了帮助您更方便的辨识遥控器，建议您为遥控器增加一个标签</string>
+
+	<!-- 错误 -->
+	<string name="error_breakdown">很抱歉，程序出错，请重启程序。</string>
+	<!-- 主页面 -->
+
+	<!-- 配置 -->
+	<!-- Gloab Setting -->
+	<string name="setting_catagory_basic_title">基本设置</string>
+	<string name="setting_num_columns_title">每行遥控器数量</string>
+	<string name="setting_num_columns_summary">每行放置的遥控器数量（最小为1）</string>
+	<string name="setting_vibrator_title">遥控器按下震动提示</string>
+	<string name="setting_vibrator_strength_title">震动强度</string>
+	<string name="setting_bottom_adjust_title">遥控器与台面距离</string>
+	<string name="setting_bottom_adjust_summary">当您的遥控器与架子底部不吻合时,可通过此选项来校正</string>
+	<string name="setting_bottom_adjust_message">数值越大越靠近台面，过大则会超过底部</string>
+
+	<!-- CONNECTION EXCEPTION -->
+	<string name="exception_sax">所获取的内容不是标准的XML格式，请重试</string>
+	<string name="exception_time_out">网络连接超时，请重试</string>
+	<string name="exception_io">服务器响应异常，请重试</string>
+	<string name="exception_urisyn">URL解析异常，请重试</string>
+	<string name="exception_unknown">抱歉，程序遇到未知错误,请重试</string>
+
+	<!-- SOCKET -->
+	<string name="socket_not_found">对不起，没有找到符合要求的遥控器</string>
+	<string name="socket_result_list">搜索结果</string>
+	<string name="socket_main_guide_dialog">网络寻找</string>
+	<string name="socket_main_guide_dialog_message">您可以长按以转换成手动输入模式</string>
+
+	<string name="socket_choice_manufacturer">设备厂商（未选择）</string>
+	<string name="socket_choice_category">设备类别（未选择）</string>
+	<string name="socket_choice_model">设备型号（未选择）</string>
+	<string name="socket_choice_list_title">请选择</string>
+
+	<!-- ERROR REPORTER -->
+	<string name="reporter_sending">错误报告已生成，正在发送错误报告</string>
+	<string name="reporter_send_success">发送成功，谢谢您的支持</string>
+	<string name="reporter_sent_fail">错误报告发送失败，已保存至sd卡，将会在下次启动时发送</string>
+
+	<string name="reporter_setting_title">启用错误报告</string>
+	<string name="reporter_setting_summary">这将帮助我们完善程序。报告中只包含一些必要的信息，不会泄露您的隐私</string>
+
+	<string name="repotrer_auto_send_title">自动发送</string>
+	<string name="reporter_auto_send_summary">如有未发送的错误报告，不要提示我，自动发送</string>
+</resources>

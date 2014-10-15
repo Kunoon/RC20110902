@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><RemoteController>
+<model>AM-8955</model>
+<NumForeach>3/3/3</NumForeach>
+<type>airmachine</type>
+<btn_width>5</btn_width>
+<btn_height>5</btn_height>
+<Buttons>
+      <button/>
+        <button>
+  	<description>FD</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>DFS</description>
+    <code/>
+    <icon/>
+  </button>
+        <button/>
+        <button>
+  	<description>DFG</description>
+    <code/>
+    <icon/>
+  </button>
+        <button/>
+        <button>
+  	<description>SD</description>
+    <code/>
+    <icon/>
+  </button>
+        <button/>
+        <button>
+  	<description>DS</description>
+    <code/>
+    <icon/>
+  </button>
+      </Buttons>
+<RowsOnScreen>7</RowsOnScreen></RemoteController>

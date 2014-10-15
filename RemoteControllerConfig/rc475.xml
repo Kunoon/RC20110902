@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><RemoteController>
+<model>HL-DVD78956421</model>
+<type>dvd</type>
+<NumForeach>3/3/3/3/3/3/3</NumForeach>
+<btn_width>5</btn_width>
+<btn_height>5</btn_height>
+<Buttons>
+      <button>
+  	<description/>
+    <code/>
+    <icon>2130837522</icon>
+  </button>
+        <button/>
+        <button>
+  	<description/>
+    <code/>
+    <icon>2130837605</icon>
+  </button>
+        <button>
+  	<description>1</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>2</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>3</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>4</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>5</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>6</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>7</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>8</description>
+    <code/>
+    <icon/>
+  </button>
+        <button>
+  	<description>9</description>
+    <code/>
+    <icon/>
+  </button>
+        <button/>
+        <button><description/><code/><icon>2130837573</icon></button>
+        <button/>
+        <button><description/><code/><icon>2130837564</icon></button>
+        <button><description/><code/><icon>2130837567</icon></button>
+        <button><description/><code/><icon>2130837570</icon></button>
+        <button/>
+        <button><description/><code/><icon>2130837561</icon></button>
+        <button/>
+      </Buttons>
+<RowsOnScreen>7</RowsOnScreen></RemoteController>

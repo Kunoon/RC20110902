@@ -1,0 +1,437 @@
+package com.koobest.setting;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import com.koobest.R;
+import com.koobest.RemoteControllerMain;
+import com.koobest.constant.ConfigConstant;
+import com.koobest.customization.CheckBoxExt;
+import com.koobest.customization.SeekBarPreference;
+import com.koobest.dialog.DialogExtension;
+import com.koobest.dialog.DialogExtension.MyBuilder.onDialogButtonClick;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
+
+public class GlobalSetting extends PreferenceActivity implements
+		OnSharedPreferenceChangeListener {
+	SharedPreferences prefs;
+	SeekBarPreference sbp;
+
+	/***************************************************************************************
+	 * Yongkun
+	 */
+	SharedPreferences sp;
+	public static final int MESSAGE_BLUETOOTH_STATE = 0;
+
+	private LinearLayout myLinearLayout = null;
+	private DialogExtension.MyBuilder devicesDialog = null;
+	private ArrayAdapter<String> devicesListAdapter;
+	private List<String> devicesList = new ArrayList<String>();
+
+	private BluetoothAdapter myAdapter = BluetoothAdapter.getDefaultAdapter();
+	// 声明广播接收器
+	private IntentFilter myIntentFilter = null;
+	private CheckBoxExt btEnableCheckBoxPreference = null;
+	private CheckBoxExt btRoleCheckBoxPreference = null;
+	private Preference btVisiblePreference = null;
+	private Preference btSearchPreference = null;
+
+	private final BroadcastReceiver myBroadcastReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			int btState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
+			HandleStateChanged(btState);
+			// 找到设备
+            if (intent.getAction().equals(BluetoothDevice.ACTION_FOUND)) {
+            	// 从Intent获取BluetoothDevice对象
+                BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+                if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
+                	String devicesInformation = device.getName() + getResources().getString(R.string.tip_BT_Unpair) + "\n" + device.getAddress();
+                	if(devicesList.indexOf(devicesInformation) == -1) {
+                		devicesList.add(devicesInformation);
+                		devicesListAdapter.notifyDataSetChanged();
+                	}
+                	
+                }
+            // 搜索完成
+            } else if (intent.getAction().equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
+            	if(devicesList.size() == 0 && devicesDialog != null) {
+            		devicesList.add(getResources().getString(R.string.tip_MyBuilderDialog_BT_Submenu_NotFoundDevice));
+            		devicesListAdapter.notifyDataSetChanged();
+            	}
+            	if(myLinearLayout != null) {
+            		myLinearLayout.setVisibility(View.GONE);
+            	}
+            }
+		}
+	};
+
+	/**************************************************************************************/
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		super.onCreate(savedInstanceState);
+		this.getListView().setBackgroundResource(R.xml.preference_bg);
+		this.getListView().setCacheColorHint(Color.TRANSPARENT);
+		this.addPreferencesFromResource(R.xml.global_preference);
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		prefs.registerOnSharedPreferenceChangeListener(this);
+
+		/***************************************************************************************
+		 * Yongkun
+		 */
+		sp = this.getSharedPreferences("com.koobest_preferences", 0);
+		// 如存在已配对的蓝牙设备就将其添加到ArrayAdapter
+		if(myAdapter.getBondedDevices().size() > 0) {
+			for(BluetoothDevice device : myAdapter.getBondedDevices()) {
+				if(sp.getString(device.getAddress(), "").trim().length() != 0) {
+					devicesList.add(sp.getString(device.getAddress(), "") + getResources().getString(R.string.tip_BT_Paired) + "\n" + device.getAddress());
+				}
+				
+			}
+		}
+		
+		btEnableCheckBoxPreference = (CheckBoxExt) findPreference("bt_enable");
+		btRoleCheckBoxPreference = (CheckBoxExt) findPreference("bt_role");
+		btVisiblePreference = (Preference) findPreference("bt_visible");
+		btSearchPreference = (Preference) findPreference("bt_search");
+		btVisiblePreference
+				.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+					@Override
+					public boolean onPreferenceClick(Preference arg0) {
+						MakeBTDiscoverable();
+						return false;
+					}
+				});
+		btSearchPreference.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+					@Override
+					public boolean onPreferenceClick(Preference arg0) {
+						DoDiscovery();
+						View view = LayoutInflater.from(GlobalSetting.this).inflate(R.layout.remote_devices_list, null);
+						myLinearLayout = (LinearLayout)view.findViewById(R.id.myLinearLayout);
+						ListView devicesListView = (ListView)view.findViewById(R.id.devicesListView);
+						devicesListAdapter = new ArrayAdapter<String>(GlobalSetting.this, android.R.layout.simple_list_item_1, devicesList);
+						devicesListView.setAdapter(devicesListAdapter);
+						devicesListView.setOnItemClickListener(myDeviceClickListener);
+						devicesListView.setOnItemLongClickListener(myDeviceLongClickListener);
+						// 实例化一个新的DialogExtension
+						devicesDialog = new DialogExtension.MyBuilder(GlobalSetting.this);
+						devicesDialog.setTitle(R.string.tip_MyBuilderDialog_BT_Submenu_Title).setDialogContentView(view).creat().show();
+						return false;
+					}
+				});
+
+		if (!prefs.getBoolean("bt_enable", false)) {
+			AboutBt(false);
+			btSearchPreference.setWidgetLayoutResource(R.layout.seek_preference_layout_unenable);
+		} else {
+			btSearchPreference.setWidgetLayoutResource(R.layout.seekbar_preference_layout);
+		}
+		
+		
+		if (!prefs.getBoolean("bt_role", false)) {
+			btVisiblePreference.setEnabled(false);
+		}
+		/**************************************************************************************/
+		sbp = (SeekBarPreference) findPreference("vibrator_strength");
+
+		if (!prefs.getBoolean("vibrator", false))
+			sbp.setEnabled(false);
+	}
+
+	/***************************************************************************************
+	 * Yongkun
+	 */
+	@Override
+	protected void onResume() {
+		super.onResume();
+		HandleStateChanged(myAdapter.getState());
+		// 注册广播接收器
+		myIntentFilter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+		this.registerReceiver(myBroadcastReceiver, myIntentFilter);
+		// 创建一个IntentFilter对象，将其action指定为BluetoothDevice.ACTION_FOUND
+		myIntentFilter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+        // 注册广播接收器
+        this.registerReceiver(myBroadcastReceiver, myIntentFilter);
+        // 创建一个IntentFilter对象，将其action指定为BluetoothDevice.ACTION_DISCOVERY_FINISHED
+        myIntentFilter = new IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+        // 注册广播接收器
+        this.registerReceiver(myBroadcastReceiver, myIntentFilter);
+	}
+	@Override
+	protected void onStop() {
+		// 确定已经结束设备扫描
+		if (myAdapter.isDiscovering()) {
+        	myAdapter.cancelDiscovery();
+        }
+		unregisterReceiver(myBroadcastReceiver);
+		super.onStop();
+	}
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
+
+	/**************************************************************************************/
+
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences,
+			String key) {
+		// TODO Auto-generated method stub
+		if (key.equals("num_columns")) {
+			RemoteControllerMain.isSettingChanged = true;
+		} 
+		if(key.equals("bottom_adjust")){
+			RemoteControllerMain.isSettingChanged = true;
+		}
+		if(key.equals("error_reporter")){
+			ConfigConstant.ERROR_START = sharedPreferences.getBoolean(key, false);
+		}
+		if(!sharedPreferences.getBoolean("vibrator", false))
+			sbp.setEnabled(false);
+		else
+			sbp.setEnabled(true);
+		/***************************************************************************************
+		 * Yongkun
+		 */
+		if (sharedPreferences.getBoolean("bt_enable", false)) {
+			myAdapter.enable();
+			btSearchPreference.setWidgetLayoutResource(R.layout.seekbar_preference_layout);
+		} else {
+			myAdapter.disable();
+			btSearchPreference.setWidgetLayoutResource(R.layout.seek_preference_layout_unenable);
+		}
+		if (sharedPreferences.getBoolean("bt_role", false)) {
+			btVisiblePreference.setEnabled(true);
+//			Toast.makeText(GlobalSetting.this, R.string.tip_BT_RoleMark, Toast.LENGTH_SHORT).show();
+//			if(RemoteControllerMain.bluetoothServer != null) {
+//				RemoteControllerMain.bluetoothServer.StartServer();
+//			}
+		} else {
+			btVisiblePreference.setEnabled(false);
+//			Toast.makeText(GlobalSetting.this, R.string.tip_BT_RoleMark, Toast.LENGTH_SHORT).show();
+//			if(RemoteControllerMain.bluetoothServer != null) {
+//				RemoteControllerMain.bluetoothServer.StopService();
+//			}
+		}
+		
+		/**************************************************************************************/
+	}
+
+	/***************************************************************************************
+	 * Yongkun
+	 */
+	private void HandleStateChanged(int btState) {
+		switch (btState) {
+		case BluetoothAdapter.STATE_TURNING_ON:
+			btEnableCheckBoxPreference
+					.setSummary(R.string.tip_Preference_BT_Enabling);
+			btEnableCheckBoxPreference.setEnabled(false);
+
+			AboutBt(false);
+			break;
+		case BluetoothAdapter.STATE_ON:
+			btEnableCheckBoxPreference.setChecked(true);
+			btEnableCheckBoxPreference.setSummary(null);
+			btEnableCheckBoxPreference.setEnabled(true);
+			
+			AboutBt(true);
+			break;
+		case BluetoothAdapter.STATE_TURNING_OFF:
+			btEnableCheckBoxPreference
+					.setSummary(R.string.tip_Preference_BT_Disabling);
+			btEnableCheckBoxPreference.setEnabled(false);
+
+			AboutBt(false);
+			break;
+		case BluetoothAdapter.STATE_OFF:
+			btEnableCheckBoxPreference.setChecked(false);
+			btEnableCheckBoxPreference
+					.setSummary(R.string.tip_Preference_BT_Default);
+			btEnableCheckBoxPreference.setEnabled(true);
+
+			AboutBt(false);
+			break;
+		default:
+			break;
+		}
+	}
+
+	private void AboutBt(boolean bool) {
+		btVisiblePreference.setEnabled(bool);
+		btRoleCheckBoxPreference.setEnabled(bool);
+		btSearchPreference.setEnabled(bool);
+		if (!prefs.getBoolean("bt_role", false)) {
+			btVisiblePreference.setEnabled(false);
+		}
+	}
+
+	/**
+	 * 设置本地蓝牙设备为可发现状态(Set Bluetooth Discoverable)
+	 */
+	private void MakeBTDiscoverable() {
+		if (myAdapter.getState() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
+			Intent discoveryIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+			discoveryIntent.putExtra(
+					BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 120);
+			startActivity(discoveryIntent);
+		}
+	}
+
+	/**
+	 * 开启本地蓝牙的搜索功能
+	 */
+    private void DoDiscovery() {
+        // 如在本地蓝牙正在搜索，则停止它
+        if (myAdapter.isDiscovering()) {
+        	myAdapter.cancelDiscovery();
+        }
+        // 开启蓝牙搜索
+        myAdapter.startDiscovery();
+    }
+    
+	/**
+	 * 监听ListView
+	 */
+    private OnItemClickListener myDeviceClickListener = new OnItemClickListener() {
+        public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3) {
+        	// 取消搜索
+            myAdapter.cancelDiscovery();
+            // 获取蓝牙MAC地址
+            String info = devicesList.get(arg2);
+            if(!info.equals(getResources().getString(R.string.tip_MyBuilderDialog_BT_Submenu_NotFoundDevice))) {
+            	String address = info.substring(info.length() - 17);
+                // 获取设备对象(Get Remote Device Object)
+    			BluetoothDevice device = myAdapter.getRemoteDevice(address);
+    			// 连接以address为地址的蓝牙设备(Connect To Device whose address is this)
+    			if(RemoteControllerMain.bluetoothServer == null) {
+    				Toast.makeText(GlobalSetting.this, "aaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+    			} else {
+    				RemoteControllerMain.bluetoothServer.ConnectToRemoteDevice(device);
+    			}
+            }
+			devicesDialog.dismiss();
+        }
+    };
+    
+    private OnItemLongClickListener myDeviceLongClickListener = new OnItemLongClickListener() {
+		public boolean onItemLongClick(AdapterView<?> arg0, View arg1, final int arg2, long arg3) {
+			// 取消搜索
+            myAdapter.cancelDiscovery();
+            // 获取蓝牙MAC地址
+            final String info = devicesList.get(arg2);
+            if(!info.equals(getResources().getString(R.string.tip_MyBuilderDialog_BT_Submenu_NotFoundDevice))) {
+            	 final String address = info.substring(info.length() - 17);
+                 List<String> list = new ArrayList<String>();
+                 list.add(getResources().getString(R.string.tip_BT_SetOtherName));
+                 list.add(getResources().getString(R.string.tip_BT_Delete));
+                 list.add(getResources().getString(R.string.tip_BT_DeleteAll));
+                 ArrayAdapter<String> defineMenuAdapter = new ArrayAdapter<String>(GlobalSetting.this, android.R.layout.simple_list_item_1, list);
+                 View view = LayoutInflater.from(GlobalSetting.this).inflate(R.layout.define_device, null);
+                 ListView defineListView = (ListView)view.findViewById(R.id.defineListView);
+                 defineListView.setAdapter(defineMenuAdapter);
+                 final DialogExtension defineMenuDialog = new DialogExtension(GlobalSetting.this);
+                 defineMenuDialog.setTitle(info);
+                 defineMenuDialog.getWindow().setBackgroundDrawableResource(R.drawable.bgconfig);
+                 defineMenuDialog.setContentView(view);
+                 defineMenuDialog.show();
+                 
+                 defineListView.setOnItemClickListener(new OnItemClickListener() {
+     				@Override
+     				public void onItemClick(AdapterView<?> arg0, View arg1, int menuNum, long arg3) {
+     					defineMenuDialog.dismiss();
+     					switch (menuNum) {
+     					case 0:
+     						// 取消搜索
+     			            myAdapter.cancelDiscovery();
+     			            // 获取蓝牙MAC地址
+//     			            String info = devicesList.get(arg2);
+//     			            final String address = info.substring(info.length() - 17);
+     			            
+     			            View view = LayoutInflater.from(GlobalSetting.this).inflate(R.layout.rename_device, null);
+     			            final EditText newDeviceNameEditText = (EditText)view.findViewById(R.id.renameDeviceEditText);
+     			            final Button confirmButton = (Button)view.findViewById(R.id.confirmButton);
+     			            final Button cancelButton = (Button)view.findViewById(R.id.cancelButton);
+     			            final DialogExtension tmpDialog = new DialogExtension(GlobalSetting.this);
+     			            tmpDialog.setTitle(R.string.tip_BT_SetOtherName);
+     			            tmpDialog.getWindow().setBackgroundDrawableResource(R.drawable.bgconfig);
+     			            tmpDialog.setContentView(view);
+     			            confirmButton.setOnClickListener(new OnClickListener() {
+     							@Override
+     							public void onClick(View arg0) {
+     								System.out.println(newDeviceNameEditText.getEditableText());
+     			            		sp.edit().putString(address, newDeviceNameEditText.getEditableText().toString()).commit();
+     			            		String btState;
+     			            		if(myAdapter.getRemoteDevice(address).getBondState() == BluetoothDevice.BOND_BONDED) {
+     			            			btState = getResources().getString(R.string.tip_BT_Paired);
+     			            		} else {
+     			            			btState = getResources().getString(R.string.tip_BT_Unpair);
+     			            		}
+     			            		devicesList.set(arg2, newDeviceNameEditText.getEditableText().toString() + btState + "\n" + address);
+     			            		devicesListAdapter.notifyDataSetChanged();
+     			            		tmpDialog.dismiss();
+     							}
+     						});
+     			            cancelButton.setOnClickListener(new OnClickListener() {
+     							@Override
+     							public void onClick(View arg0) {
+     								tmpDialog.dismiss();
+     							}
+     						});
+     			            tmpDialog.show();
+     						break;
+     					case 1:
+     						devicesList.remove(arg2);
+     						sp.edit().remove(address).commit();
+     						devicesListAdapter.notifyDataSetChanged();
+     						break;
+     					case 2:
+     						devicesList.clear();
+     						sp.edit().clear().commit();
+     						devicesListAdapter.notifyDataSetChanged();
+     						break;
+
+     					default:
+     						break;
+     					}
+     				}
+     			});
+            }
+			return false;
+		}
+	};
+
+	/**************************************************************************************/
+
+}

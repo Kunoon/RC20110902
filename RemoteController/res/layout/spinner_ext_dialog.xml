@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation = "vertical"
+  android:padding = "20dp"
+  >
+<com.koobest.customization.SpinnerExt 
+  android:id = "@+id/spext_mnf"
+  android:layout_width = "match_parent"
+  android:layout_height = "32dp"
+  android:orientation = "horizontal"
+  android:hint = "@string/socket_choice_manufacturer"
+  android:layout_marginBottom = "20dp"
+>
+</com.koobest.customization.SpinnerExt>
+<com.koobest.customization.SpinnerExt 
+  android:id = "@+id/spext_type"
+  android:layout_width = "match_parent"
+  android:layout_height = "32dp"
+  android:orientation = "horizontal"
+  android:hint = "@string/socket_choice_category"
+  android:layout_marginBottom = "20dp"
+>
+</com.koobest.customization.SpinnerExt>
+<com.koobest.customization.SpinnerExt 
+  android:id = "@+id/spext_model"
+  android:layout_width = "match_parent"
+  android:layout_height = "32dp"
+  android:orientation = "horizontal"
+  android:hint = "@string/socket_choice_model"
+>
+</com.koobest.customization.SpinnerExt>
+
+</LinearLayout>

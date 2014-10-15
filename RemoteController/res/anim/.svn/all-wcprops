@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/rc/!svn/ver/51/res/anim
+END
+enter_rc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/rc/!svn/ver/42/res/anim/enter_rc.xml
+END
+rc_show.xml
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/rc/!svn/ver/37/res/anim/rc_show.xml
+END
+win_exit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/rc/!svn/ver/51/res/anim/win_exit.xml
+END
+win_enter.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/rc/!svn/ver/51/res/anim/win_enter.xml
+END
+exit_main.xml
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/rc/!svn/ver/37/res/anim/exit_main.xml
+END
